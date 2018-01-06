@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane id="MidPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.acesso.acessopassguardcrud.controller.Controller">
+	<top>
+		<MenuBar id="TopPane">
+			<Menu text="_Arquivo">
+				<MenuItem onAction="#exit" text="_Sair" />
+			</Menu>
+		</MenuBar>
+	</top>
+
+	<center>
+		<GridPane id="MidPane" hgap="5" vgap="5">
+			<BorderPane.margin>
+				<Insets left="10" right="10" top="10" />
+			</BorderPane.margin>
+
+         			<Label text="Site/Serviço:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+			<TextField fx:id="txtServico" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+         			<Label text="Login:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+			<TextField fx:id="txtLogin" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+
+         			<Label text="Senha:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+			<TextField fx:id="txtSenha" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+
+         			<Label text="Observações:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+			<TextArea fx:id="txtObservacoes" prefHeight="181.0" prefWidth="447.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+				
+         			<HBox alignment="CENTER_RIGHT" spacing="10" GridPane.columnSpan="2" GridPane.rowIndex="4">
+				<Button fx:id="btnConfirm" onAction="#onConfirm" text="Confirmar" />
+				<Button fx:id="btnCancel" onAction="#onCancel" text="Cancelar" />
+			</HBox>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints maxWidth="502.0" minWidth="437.0" prefWidth="482.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+		</GridPane>
+	</center>
+   <right>
+		<GridPane BorderPane.alignment="CENTER">
+			<padding>
+				<Insets bottom="10" top="10" />
+			</padding>
+			
+   			<GridPane id="MidPane" hgap="5" vgap="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+				<GridPane.margin>
+					<Insets bottom="10" />
+				</GridPane.margin>
+				<Label text="Pesquisar:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+				<TextField fx:id="txtSearch" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+				<HBox alignment="CENTER_RIGHT" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
+					<Button fx:id="btnSearch" onAction="#onSearch" prefWidth="80" text="Pesquisar" />
+					<Button fx:id="btnClearSearch" onAction="#clearSearch" prefWidth="80" text="Limpar" />
+				</HBox>
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
+			</GridPane>
+			
+   			<TableView fx:id="table" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+				<columns>
+					<TableColumn prefWidth="120" text="Site/Serviço">
+						<cellValueFactory>
+							<PropertyValueFactory property="servico" />
+						</cellValueFactory>
+					</TableColumn>
+					<TableColumn prefWidth="120" text="Login">
+						<cellValueFactory>
+							<PropertyValueFactory property="login" />
+						</cellValueFactory>
+					</TableColumn>
+				</columns>
+			</TableView>
+			
+   			<HBox alignment="CENTER_RIGHT" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="2">
+				<padding>
+					<Insets bottom="10" top="10" />
+				</padding>
+				<Button fx:id="btnNovo" onAction="#onNew" prefWidth="60" text="Novo" />
+				<Button fx:id="btnEditar" onAction="#onEdit" prefWidth="60" text="Editar" />
+				<Button fx:id="btnExcluir" onAction="#onDelete" prefWidth="60" text="Excluir" />
+			</HBox>
+         <columnConstraints>
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+		</GridPane>
+   </right>
+</BorderPane>

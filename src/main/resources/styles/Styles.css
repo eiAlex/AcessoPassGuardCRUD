@@ -1,0 +1,13 @@
+.button {
+    -fx-font-weight: bold;
+    -fx-background-color: #03BB7D;
+}
+.gridpane{
+    -fx-background-color: #03BB7D;
+}
+#TopPane{
+    -fx-background-color: linear-gradient(#D6D6D6, white);
+}
+#MidPane{
+    -fx-background-color: linear-gradient(#D6D6D6, white);
+}
